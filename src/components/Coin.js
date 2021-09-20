@@ -36,8 +36,8 @@ function Coin({
             <div className={`${price_change_percentage_7d_in_currency >= 0 ? 'positive' : 'negative'} coin__week`}>
                 {price_change_percentage_7d_in_currency ? `${price_change_percentage_7d_in_currency.toFixed(1)}%` : 0}
             </div>
-            <div className="coin__volume">{total_volume ? numberWithCommas(total_volume) : 0}</div>
-            <div className="coin__cap">{market_cap ? numberWithCommas(market_cap) : 0}</div>
+            <div className="coin__volume">{total_volume ? `$${numberWithCommas(total_volume)}` : 0}</div>
+            <div className="coin__cap">{market_cap ? `$${numberWithCommas(market_cap)}` : 0}</div>
             <div className="coin__chart">
                 <img src={`https://www.coingecko.com/coins/${coinChartID}/sparkline`} />
             </div>
