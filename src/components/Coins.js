@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react';
 import Coin from './Coin';
 import '../assets/styles/_coins.scss';
 import GlobalStats from './GlobalStats';
-import useStats from '../hooks/useStats';
+import useAPI from '../hooks/useAPI';
 
 function Coins() {
     const [page, setPage] = useState(1);
     const [url, setUrl] = useState(
         `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&price_change_percentage=1h,24h,7d&page=${page}`
     );
-    const { stats, loading } = useStats(url);
+    const { data, loading } = useAPI(url);
 
     useEffect(() => {
         setUrl(
@@ -33,7 +33,7 @@ function Coins() {
                     <h1 className="coins__header--cap">Mkt Cap</h1>
                     <h1 className="coins__header--lastweek">Last 7 Days</h1>
                 </div>
-                {loading || !stats ? 'loading' : stats.map((coin) => <Coin {...coin} key={coin.id} />)}
+                {loading || !data ? 'loading' : data.map((coin) => <Coin {...coin} key={coin.id} />)}
                 <div className="coins__controls">
                     <button onClick={() => setPage(page - 1)} disabled={page === 1}>
                         &#8249; Previous

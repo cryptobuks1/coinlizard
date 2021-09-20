@@ -1,14 +1,16 @@
 import React from 'react';
 
-import useStats from '../hooks/useStats';
+import useAPI from '../hooks/useAPI';
 import '../assets/styles/_stats.scss';
 import { formatPrice } from '../utils';
 
 function GlobalStats() {
-    const { stats, loading } = useStats('https://api.coingecko.com/api/v3/global');
-    if (loading || !stats) return 'loading';
+    const { data, loading } = useAPI('https://api.coingecko.com/api/v3/global');
 
-    const { active_cryptocurrencies, total_market_cap, total_volume, market_cap_percentage } = stats.data;
+    if (loading || !data) return 'loading';
+
+    const { active_cryptocurrencies, total_market_cap, total_volume, market_cap_percentage } = data.data;
+
     return (
         <div className="stats__container">
             <div className="stats__cap">

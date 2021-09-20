@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-export default function useStats(url) {
-    const [stats, setStats] = useState();
+export default function useAPI(url) {
+    const [data, setData] = useState();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState();
 
@@ -15,7 +15,7 @@ export default function useStats(url) {
                 .catch((err) => setError(err));
 
             if (!data.error) {
-                setStats(data);
+                setData(data);
             }
 
             setLoading(false);
@@ -24,5 +24,5 @@ export default function useStats(url) {
         fetchData();
     }, [url]);
 
-    return { stats, loading, error };
+    return { data, loading, error };
 }
