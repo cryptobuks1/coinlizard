@@ -1,8 +1,8 @@
-export function formatPrice(price) {
+export function formatPrice(price, hideRemainder) {
     if (!price) return price;
 
     const remainder = price.toString().split('.')[1];
-    const fractionalDigits = remainder ? price.toString().split('.')[1].length : 0;
+    const fractionalDigits = remainder && !hideRemainder ? price.toString().split('.')[1].length : 0;
 
     const maximumFractionDigits = fractionalDigits > 10 ? 10 : fractionalDigits;
     const minimumFractionDigits = fractionalDigits < 2 ? 0 : fractionalDigits;
