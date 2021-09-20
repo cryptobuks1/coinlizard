@@ -1,0 +1,53 @@
+@import 'coin';
+
+.coins {
+    &__container {
+        margin: 20px 0;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        height: 45px;
+        background-color: #343a40;
+        border-top: 1px solid #636363;
+
+        h1 {
+            font-size: 0.875rem;
+        }
+
+        &--rank {
+            width: 20px;
+            padding: 0 25px;
+            text-align: center;
+        }
+
+        &--name {
+            width: 350px;
+            text-align: left;
+        }
+
+        &--price {
+            width: 150px;
+            text-align: left;
+        }
+
+        &--hour,
+        &--day,
+        &--week {
+            width: 75px;
+            text-align: center;
+        }
+
+        &--volume,
+        &--cap {
+            width: 155px;
+            text-align: center;
+        }
+
+        &--lastweek {
+            width: 185px;
+            text-align: center;
+        }
+    }
+}
