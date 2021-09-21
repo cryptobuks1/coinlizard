@@ -1,4 +1,10 @@
 .stats {
+    &__description {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        color: #9ca3af;
+    }
+
     &__container {
         margin: 25px 0;
         display: flex;
@@ -36,7 +42,7 @@
             }
 
             h2 {
-                color: rgba(107, 114, 128, 0.5);
+                color: #6b7280;
                 font-size: 0.875rem;
                 line-height: 1.25rem;
             }

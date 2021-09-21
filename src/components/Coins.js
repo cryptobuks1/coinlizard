@@ -4,6 +4,7 @@ import Coin from './Coin';
 import '../assets/styles/_coins.scss';
 import GlobalStats from './GlobalStats';
 import useAPI from '../hooks/useAPI';
+import Loading from './Loading';
 
 function Coins() {
     const [page, setPage] = useState(1);
@@ -33,7 +34,7 @@ function Coins() {
                     <h1 className="coins__header--cap">Mkt Cap</h1>
                     <h1 className="coins__header--lastweek">Last 7 Days</h1>
                 </div>
-                {loading || !data ? 'loading' : data.map((coin) => <Coin {...coin} key={coin.id} />)}
+                {loading || !data ? <Loading /> : data.map((coin) => <Coin {...coin} key={coin.id} />)}
                 <div className="coins__controls">
                     <button onClick={() => setPage(page - 1)} disabled={page === 1}>
                         &#8249; Previous
