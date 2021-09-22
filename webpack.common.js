@@ -24,9 +24,17 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         // generate index.html
         new HtmlWebpackPlugin({
+            title: 'CoinLizard',
             filename: 'index.html',
             template: 'src/index.html',
-            favicon: 'src/assets/images/favicon.ico'
+            favicon: 'src/assets/images/favicon.ico',
+            meta: {
+                viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
+                'set-cookie': { 'http-equiv': 'Cache-control', content: 'public' },
+                description: 'CoinLizard',
+                'theme-color': '#ffffff',
+                charset: 'UTF-8'
+            }
         })
     ]
 };

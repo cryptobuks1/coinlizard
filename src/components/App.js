@@ -5,7 +5,7 @@ import Coins from './Coins';
 import Header from './Header';
 
 const App = () => (
-    <div className="app__container">
+    <div className="xl:w-[1300px] lg:w-[960px] md:w-[768px] sm:w-[540px] sm:px-0 w-full my-6 px-4 mx-auto">
         <Header />
         <Coins />
     </div>

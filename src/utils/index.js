@@ -29,6 +29,7 @@ export function percentage(p, hideRemainder) {
 
     return `${p.toFixed(2)}%`;
 }
+
 export function intToString(labelValue) {
     if (Math.abs(Number(labelValue)) >= 1.0e12) {
         return `$${(Math.abs(Number(labelValue)) / 1.0e12).toFixed(2)} Trillion`;

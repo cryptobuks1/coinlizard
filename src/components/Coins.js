@@ -22,11 +22,11 @@ function Coins() {
     return (
         <div className="mt-5">
             <GlobalStats />
-            <div>
-                <div className="flex items-center h-45 border-t">
+            <div className="overflow-auto">
+                <div className="flex items-center h-45 border-t w-min md:w-full">
                     <h1 className="w-[50px] py-3 text-sm text-center">#</h1>
-                    <h1 className="w-[350px] py-3 text-sm text-left">Coin</h1>
-                    <h1 className="w-[150px] py-3  text-sm text-left">Price</h1>
+                    <h1 className="lg:w-[350px] w-[100px] py-3 text-sm text-left">Coin</h1>
+                    <h1 className="lg:w-[150px] w-[100px] py-3  text-sm text-left">Price</h1>
                     <h1 className="w-[75px] py-3 text-sm text-center">1h</h1>
                     <h1 className="w-[75px] py-3 text-sm text-center">24h</h1>
                     <h1 className="w-[75px] py-3 text-sm text-center">7d</h1>
@@ -35,14 +35,14 @@ function Coins() {
                     <h1 className="w-[185px] py-3 text-sm text-center">Last 7 Days</h1>
                 </div>
                 {loading || !data ? <Loading /> : data.map((coin) => <Coin {...coin} key={coin.id} />)}
-                <div className="my-1 flex justify-between">
-                    <button className="pagination" onClick={() => setPage(page - 1)} disabled={page === 1}>
-                        &#8249; Previous
-                    </button>
-                    <button className="pagination" onClick={() => setPage(page + 1)}>
-                        Next &#8250;
-                    </button>
-                </div>
+            </div>
+            <div className="my-1 flex justify-between">
+                <button className="pagination" onClick={() => setPage(page - 1)} disabled={page === 1}>
+                    &#8249; Prev
+                </button>
+                <button className="pagination" onClick={() => setPage(page + 1)}>
+                    Next &#8250;
+                </button>
             </div>
         </div>
     );
