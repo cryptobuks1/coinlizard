@@ -43,7 +43,10 @@ function GlobalStats() {
                 <div
                     className={`border-l-8 ${capBorderColor} h-20 p-4 rounded shadow-md mt-3 lg:mt-0 lg:mr-4 dark:bg-white dark:bg-opacity-5`}
                 >
-                    <h1 className="text-xl">{formatPrice(total_market_cap.usd, true)}</h1>
+                    <div className="flex">
+                        <h1 className="text-xl mr-2">{formatPrice(total_market_cap.usd, true)}</h1>
+                        <Percent p={market_cap_change_percentage_24h_usd} />
+                    </div>
                     <h2 className="text-sm text-gray-500">Market Capitalization</h2>
                 </div>
                 <div
