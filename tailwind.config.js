@@ -19,6 +19,10 @@ module.exports = {
             primary: '#8dc647',
             danger: '#e15241'
         },
+        backgroundColor: (theme) => ({
+            ...theme('colors'),
+            dark: '#121212'
+        }),
         borderColor: (theme) => ({
             ...theme('colors'),
             primary: '#8dc647',
