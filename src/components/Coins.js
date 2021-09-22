@@ -20,26 +20,28 @@ function Coins() {
     }, [page]);
 
     return (
-        <div className="coins__container">
+        <div className="mt-5">
             <GlobalStats />
-            <div className="coins__table">
-                <div className="coins__header">
-                    <h1 className="coins__header--rank">#</h1>
-                    <h1 className="coins__header--name">Coin</h1>
-                    <h1 className="coins__header--price">Price</h1>
-                    <h1 className="coins__header--hour">1h</h1>
-                    <h1 className="coins__header--day">24h</h1>
-                    <h1 className="coins__header--week">7d</h1>
-                    <h1 className="coins__header--volume">24h Volume</h1>
-                    <h1 className="coins__header--cap">Mkt Cap</h1>
-                    <h1 className="coins__header--lastweek">Last 7 Days</h1>
+            <div>
+                <div className="flex items-center h-45 border-t">
+                    <h1 className="w-[50px] py-3 text-sm text-center">#</h1>
+                    <h1 className="w-[350px] py-3 text-sm text-left">Coin</h1>
+                    <h1 className="w-[150px] py-3  text-sm text-left">Price</h1>
+                    <h1 className="w-[75px] py-3 text-sm text-center">1h</h1>
+                    <h1 className="w-[75px] py-3 text-sm text-center">24h</h1>
+                    <h1 className="w-[75px] py-3 text-sm text-center">7d</h1>
+                    <h1 className="w-[155px] py-3  text-sm text-center">24h Volume</h1>
+                    <h1 className="w-[155px] py-3 text-sm text-center">Mkt Cap</h1>
+                    <h1 className="w-[185px] py-3 text-sm text-center">Last 7 Days</h1>
                 </div>
                 {loading || !data ? <Loading /> : data.map((coin) => <Coin {...coin} key={coin.id} />)}
-                <div className="coins__controls">
-                    <button onClick={() => setPage(page - 1)} disabled={page === 1}>
+                <div className="my-1 flex justify-between">
+                    <button className="pagination" onClick={() => setPage(page - 1)} disabled={page === 1}>
                         &#8249; Previous
                     </button>
-                    <button onClick={() => setPage(page + 1)}>Next &#8250;</button>
+                    <button className="pagination" onClick={() => setPage(page + 1)}>
+                        Next &#8250;
+                    </button>
                 </div>
             </div>
         </div>

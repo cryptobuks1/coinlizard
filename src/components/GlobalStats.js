@@ -1,7 +1,6 @@
 import React from 'react';
 
 import useAPI from '../hooks/useAPI';
-import '../assets/styles/_stats.scss';
 import { formatPrice, numberWithCommas, percentage, intToString } from '../utils';
 import Loading from './Loading';
 
@@ -20,8 +19,11 @@ function GlobalStats() {
 
     return (
         <div>
-            <h1>Cryptocurrency Prices by Market Cap</h1>
-            <p className="stats__description">{`The Global cryptocurrency market cap today is ${intToString(
+            <h1 className="text-xl mr-2 pb-0 mb-0 text-gray-700 font-bold dark:text-white md:text-2xl">
+                Cryptocurrency Prices by Market Cap
+            </h1>
+
+            <p className="text-sm text-gray-500 mt-1 dark:text-gray-400">{`The Global cryptocurrency market cap today is ${intToString(
                 total_market_cap.usd
             )}, a ${percentage(
                 market_cap_change_percentage_24h_usd
@@ -32,22 +34,23 @@ function GlobalStats() {
             )} and Ethereum dominance is at ${percentage(
                 market_cap_percentage.eth
             )}. CoinLizard is now tracking ${numberWithCommas(active_cryptocurrencies)} cryptocurrencies.`}</p>
-            <div className="stats__container">
-                <div className="stats__cap">
-                    <h1>{formatPrice(total_market_cap.usd, true)}</h1>
-                    <h2>Market Capitalization</h2>
+
+            <div className="lg:grid lg:grid-flow-col lg:grid-cols-4 my-4">
+                <div className="border-l-8 border-red-500 h-20 p-4 rounded shadow-md mt-3 lg:mt-0 lg:mr-4 dark:bg-white dark:bg-opacity-5">
+                    <h1 className="text-xl">{formatPrice(total_market_cap.usd, true)}</h1>
+                    <h2 className="text-sm text-gray-500">Market Capitalization</h2>
                 </div>
-                <div className="stats__volume">
-                    <h1>{formatPrice(total_volume.usd, true)}</h1>
-                    <h2>24h Trading Volume</h2>
+                <div className="border-l-8 border-primary h-20 p-4 rounded shadow-md mt-3 lg:mt-0 lg:mr-4 dark:bg-white dark:bg-opacity-5">
+                    <h1 className="text-xl">{formatPrice(total_volume.usd, true)}</h1>
+                    <h2 className="text-sm text-gray-500">24h Trading Volume</h2>
                 </div>
-                <div className="stats__btc">
-                    <h1>{percentage(market_cap_percentage.btc)}</h1>
-                    <h2>Bitcoin Market Cap Dominance</h2>
+                <div className="border-l-8 border-grey-500 h-20 p-4 rounded shadow-md mt-3 lg:mt-0 lg:mr-4 dark:bg-white dark:bg-opacity-5">
+                    <h1 className="text-xl">{percentage(market_cap_percentage.btc)}</h1>
+                    <h2 className="text-sm text-gray-500">Bitcoin Market Cap Dominance</h2>
                 </div>
-                <div className="stats__coins">
-                    <h1>{active_cryptocurrencies}</h1>
-                    <h2># of Coins</h2>
+                <div className="border-l-8 border-grey-500 h-20 p-4 rounded shadow-md mt-3 lg:mt-0 dark:bg-white dark:bg-opacity-5">
+                    <h1 className="text-xl">{active_cryptocurrencies}</h1>
+                    <h2 className="text-sm text-gray-500"># of Coins</h2>
                 </div>
             </div>
         </div>

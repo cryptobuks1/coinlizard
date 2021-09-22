@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function Loading() {
-    return <div className="loading">Loading...</div>;
+    return <div className="flex justify-center align-center">Loading...</div>;
 }
