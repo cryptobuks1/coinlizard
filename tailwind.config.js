@@ -8,7 +8,7 @@ module.exports = {
             md: '768px',
             lg: '976px',
             xl: '1300px',
-            mobile: { max: '480px' }
+            mobile: { max: '780px' }
         },
         extend: {
             colors: {

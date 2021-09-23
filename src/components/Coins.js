@@ -41,7 +41,7 @@ function Coins() {
                 <TableHead />
                 <div>{loading || !data ? <Loading /> : data.map((coin) => <Coin {...coin} key={coin.id} />)}</div>
             </div>
-            <div className="my-1 flex justify-between">
+            <div className="my-2 mb-4 flex justify-between">
                 <button
                     className="flex justify-between cursor-pointer rounded bg-dark border px-2 py-2 items-center hover:bg-primary hover:border-primary transition-all hover:text-primary disabled:text-[#6c757d] disabled:bg-white disabled:cursor-auto disabled:border-[#dee2e6]"
                     onClick={() => setPage(page - 1)}
